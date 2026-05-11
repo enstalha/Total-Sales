@@ -25,15 +25,16 @@ function getItemsBySeller($conn, $seller_id) {
     return mysqli_fetch_all($res, MYSQLI_ASSOC);
 }
 
-function addItem($conn, $seller_id, $title, $desc, $price, $category) {
+function addItem($conn, $seller_id, $title, $desc, $price, $category, $image = '') {
     $seller_id = (int)$seller_id;
     $title     = mysqli_real_escape_string($conn, $title);
     $desc      = mysqli_real_escape_string($conn, $desc);
     $price     = (float)$price;
     $category  = mysqli_real_escape_string($conn, $category);
+    $image     = mysqli_real_escape_string($conn, $image);
 
-    $q = "INSERT INTO items (seller_id, title, description, price, category)
-          VALUES ($seller_id, '$title', '$desc', $price, '$category')";
+    $q = "INSERT INTO items (seller_id, title, description, price, category, image)
+          VALUES ($seller_id, '$title', '$desc', $price, '$category', '$image')";
     return mysqli_query($conn, $q);
 }
 

@@ -41,7 +41,11 @@ if ($action === 'index') {
         } elseif (!is_numeric($price) || $price <= 0) {
             $error = "Price must be a positive number.";
         } else {
-            addItem($conn, $_SESSION['user_id'], $title, $desc, $price, $category);
+            $img_name = basename($_FILES['item_image']['name']);
+            $upload_path = 'public/uploads/' . $img_name;
+            move_uploaded_file($_FILES['item_image']['tmp_name'], $upload_path);
+
+            addItem($conn, $_SESSION['user_id'], $title, $desc, $price, $category, $img_name);
             header("Location: index.php?page=items&action=my_listings");
             exit;
         }

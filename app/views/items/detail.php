@@ -5,6 +5,10 @@
 
     <h2><?= htmlspecialchars($item['title']) ?></h2>
 
+    <?php if (!empty($item['image'])): ?>
+        <img src="public/uploads/<?php echo $item['image']; ?>" width="300">
+    <?php endif; ?>
+
     <table class="detail-table">
         <tr><th>Category</th><td><?= htmlspecialchars($item['category']) ?></td></tr>
         <tr><th>Seller</th><td><?= htmlspecialchars($item['seller_name']) ?></td></tr>

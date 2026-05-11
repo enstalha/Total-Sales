@@ -22,6 +22,7 @@ CREATE TABLE items (
     description TEXT,
     price DECIMAL(10, 2) NOT NULL,
     category VARCHAR(50),
+    image VARCHAR(255),
     status ENUM('available', 'sold') DEFAULT 'available',
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (seller_id) REFERENCES users(id) ON DELETE CASCADE

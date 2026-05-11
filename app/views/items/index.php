@@ -9,6 +9,9 @@
         <div class="item-grid">
             <?php foreach ($items as $item): ?>
                 <div class="item-card">
+                    <?php if (!empty($item['image'])): ?>
+                        <img src="public/uploads/<?php echo $item['image']; ?>" width="300">
+                    <?php endif; ?>
                     <h3><?= htmlspecialchars($item['title']) ?></h3>
                     <p class="item-meta">Category: <?= htmlspecialchars($item['category']) ?></p>
                     <p class="item-meta">Seller: <?= htmlspecialchars($item['seller_name']) ?></p>

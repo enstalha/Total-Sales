@@ -7,7 +7,7 @@
         <p class="msg error"><?= htmlspecialchars($error) ?></p>
     <?php endif; ?>
 
-    <form method="POST" action="index.php?page=items&action=add" id="addItemForm" novalidate>
+    <form method="POST" action="index.php?page=items&action=add" id="addItemForm" enctype="multipart/form-data" novalidate>
         <div class="form-group">
             <label for="title">Item Title</label>
             <input type="text" id="title" name="title" value="<?= htmlspecialchars($_POST['title'] ?? '') ?>">
@@ -33,6 +33,10 @@
                 <option value="Vintage">Vintage Items</option>
                 <option value="Other">Other</option>
             </select>
+        </div>
+        <div class="form-group">
+            <label for="item_image">Item Image</label>
+            <input type="file" id="item_image" name="item_image">
         </div>
         <button type="submit" class="btn">Add Item</button>
     </form>
